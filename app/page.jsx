@@ -1,9 +1,10 @@
 import { Photo } from "@/components/Photo";
-import Resume from "@/components/Resume";
+import Summary from "@/components/Summary";
 import Social from "@/components/Social";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { FiDownload } from "react-icons/fi";
+import Footer from "@/components/Footer";
 
 const page = () => {
   return (
@@ -12,14 +13,13 @@ const page = () => {
         <div className="container mx-auto h-full">
           <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-210">
             <div className="text-center xl:text-left order-2 xl:order-none">
-              <span className="text-xl">Software Developer</span>
-              <h1 className="h1">
-                Hello, I&apos;m <br />
-                <span className="text-accent ">Sumanth Thota</span>
+              <h1 className="h2">
+                Hi, I am
+                <span className="text-accent "> Sumanth </span>
               </h1>
-              <p className="xl:text-xl max-w-[500px] mb-9 text-white/80 ">
-                Welcome to my page. Here, I am going to show my experiences and
-                my expertise in tech{" "}
+              <p className="xl:text-xl max-w-[600px] mb-9 mt-5 text-white/80 ">
+                Welcome to my page! I'm a Software Engineer with 3+ years of
+                experience. Check out my work!
               </p>
 
               <div className="flex flex-col xl:flex-row items-center gap-8">
@@ -48,7 +48,13 @@ const page = () => {
         </div>
       </section>
       <section className="h-full">
-        <Resume />
+        <Summary />
+      </section>
+      <section className="container h-full full-width-container text-center pd-5  bg-[#232329]">
+        <Footer />
+        <p className="text-white/30">
+          Copyright &copy; 2024 Sumanth. All rights reserved.
+        </p>
       </section>
     </>
   );

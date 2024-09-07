@@ -23,28 +23,28 @@ import {
   FaGoogle,
 } from "react-icons/fa";
 import Image from "next/image";
-const about = {
-  title: "About me",
-  description: "",
-  info: [
-    {
-      fieldName: "Name",
-      fieldValue: "Sumanth Thota",
-    },
-    {
-      fieldName: "Phone",
-      fieldValue: "+1 (716) 617 9181",
-    },
-    {
-      fieldName: "Experience",
-      fieldValue: "3 Years",
-    },
-    {
-      fieldName: "Email",
-      fieldValue: "sumanththota7@gmail.com",
-    },
-  ],
-};
+// const about = {
+//   title: "About me",
+//   description: "",
+//   info: [
+//     {
+//       fieldName: "Name",
+//       fieldValue: "Sumanth Thota",
+//     },
+//     {
+//       fieldName: "Phone",
+//       fieldValue: "+1 (716) 617 9181",
+//     },
+//     {
+//       fieldName: "Experience",
+//       fieldValue: "3 Years",
+//     },
+//     {
+//       fieldName: "Email",
+//       fieldValue: "sumanththota7@gmail.com",
+//     },
+//   ],
+// };
 const Awards = {
   title: "Awards",
   items: [
@@ -162,14 +162,13 @@ const skills = {
   ],
 };
 
-const Resume = () => {
+const Summary = () => {
   return (
-    // <div>hi</div>
     <motion.div
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        tansition: { delay: 0.4, duartion: 0.4, ease: "easeIN" },
+        tansition: { delay: 0.2, duartion: 0.2, ease: "easeIN" },
       }}
       className="min-h-[110vh] flex items-center justify-center py-12 xl:py-0"
     >
@@ -182,65 +181,64 @@ const Resume = () => {
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="achievements">Achievements</TabsTrigger>
-            <TabsTrigger value="about">About me</TabsTrigger>
+            {/* <TabsTrigger value="achievements">Achievements</TabsTrigger> */}
+            {/* <TabsTrigger value="about">About me</TabsTrigger> */}
           </TabsList>
           <div className="min-h-[50vh] w-full">
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{experience.title}</h3>
-                <ScrollArea className="h-[500px]">
-                  <ul className="grid grid-cols-1  gap-[30px]">
-                    {experience.items.map((item, idx) => {
-                      return (
-                        <li
-                          key={idx}
-                          className="bg-[#232329]  pt-5 px-5 pb-8 rounded-xl flex flex-col items-center lg:items-start gap-1"
-                        >
-                          <div className="flex flex-row  w-full">
-                            <Image
-                              src={item.image}
-                              width={65}
-                              height={35}
-                              alt=""
-                            ></Image>
-                            <div className="flex flex-row justify-between w-full  ml-5 ">
-                              <span>
-                                <p className="text-xl ">{item.company}</p>
-                                <h3 className="my-auto">{item.title}</h3>
-                              </span>
 
-                              <span className="text-accent">
-                                {item.duration}
-                              </span>
-                            </div>
+                <ul className="grid grid-cols-1  gap-[30px]">
+                  {experience.items.map((item, idx) => {
+                    return (
+                      <li
+                        key={idx}
+                        className="bg-[#232329] text-white/80  pt-5 px-5 pb-8 rounded-xl flex flex-col items-center lg:items-start gap-1"
+                      >
+                        <div className="flex flex-row  w-full">
+                          <Image
+                            src={item.image}
+                            width={65}
+                            height={35}
+                            alt=""
+                          ></Image>
+                          <div className="flex flex-row justify-between w-full  ml-5 ">
+                            <span>
+                              <p className="text-xl ">{item.company}</p>
+                              <h3 className="my-auto">{item.title}</h3>
+                            </span>
+
+                            <span className="text-accent/70">
+                              {item.duration}
+                            </span>
                           </div>
+                        </div>
 
-                          <div className="mt-10 text-md font-custom">
+                        {/* <div className="mt-10 text-md font-custom">
                             <span className="text-accent mr-5">•</span>
                             {item.description}
+                          </div> */}
+                        <div>
+                          <div className="flex flex-row flex-wrap gap-3 mt-5 items-center justify-between">
+                            {item.skills.map((skill, idx) => {
+                              return (
+                                <span
+                                  key={idx}
+                                  className=" rounded-full  items-center border border-accent/50 px-3 py-1"
+                                >
+                                  <div className="flex font-custom">
+                                    {skill}
+                                  </div>
+                                </span>
+                              );
+                            })}
                           </div>
-                          <div>
-                            <div className="flex flex-row gap-3 items-center justify-between">
-                              {item.skills.map((skill, idx) => {
-                                return (
-                                  <span
-                                    key={idx}
-                                    className=" rounded-full  items-center border border-accent px-3 py-1"
-                                  >
-                                    <div className="flex font-custom">
-                                      {skill}
-                                    </div>
-                                  </span>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </ScrollArea>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </TabsContent>
             <TabsContent value="education" className="w-full">
@@ -252,7 +250,7 @@ const Resume = () => {
                       return (
                         <li
                           key={idx}
-                          className="bg-[#232329] pt-5 px-5 pb-5 rounded-xl flex flex-col items-center lg:items-start gap-1"
+                          className="bg-[#232329] text-white/80  pt-5 px-5 pb-5 rounded-xl flex flex-col items-center lg:items-start gap-1"
                         >
                           <div className="flex flex-row w-full">
                             <Image
@@ -267,7 +265,7 @@ const Resume = () => {
                                 <h3>{item.degree}</h3>
                               </span>
 
-                              <span className="text-accent">
+                              <span className="text-accent/70">
                                 {item.duration}
                               </span>
                             </div>
@@ -318,7 +316,7 @@ const Resume = () => {
                 </ScrollArea>
               </div>
             </TabsContent>
-            <TabsContent value="about" className="w-full">
+            {/* <TabsContent value="about" className="w-full">
               <div className="flex flex-col gap-[30px] ">
                 <h3 className=" text-4xl font-bold ">{about.title}</h3>
                 <ul className="grid grid-cols-1 xl: grid-col-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
@@ -335,7 +333,7 @@ const Resume = () => {
                   })}
                 </ul>
               </div>
-            </TabsContent>
+            </TabsContent> */}
           </div>
         </Tabs>
       </div>
@@ -343,4 +341,4 @@ const Resume = () => {
   );
 };
 
-export default Resume;
+export default Summary;
